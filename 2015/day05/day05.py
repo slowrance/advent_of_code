@@ -1,12 +1,14 @@
 with open('input.txt') as f:
     strings = [string.strip() for string in f.readlines()]
 
+
 def three_vowels(string):
     count = 0
     for char in string:
         if char in 'aeiou':
             count += 1
     return count >= 3
+
 
 def double_letter(string):
     for i, letter in enumerate(string):
@@ -15,6 +17,7 @@ def double_letter(string):
                 return True
     return False
 
+
 def double_letter_with_gap(string):
     for i, letter in enumerate(string):
         if i < len(string) - 2:
@@ -22,12 +25,14 @@ def double_letter_with_gap(string):
                 return True
     return False
 
+
 def pairs_twice(string):
     for i, letter in enumerate(string):
         if i < len(string) - 3:
-            if string[i:i+2] in string[i+2:]:
+            if string[i:i + 2] in string[i + 2:]:
                 return True
     return False
+
 
 def no_bad_string(string):
     no_bad = True
@@ -35,6 +40,7 @@ def no_bad_string(string):
         if pair in string:
             no_bad = False
     return no_bad
+
 
 # print(strings)
 # print('ab' in 'abcdefg')
