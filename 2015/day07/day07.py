@@ -9,8 +9,7 @@ test_input = ['123 -> x',
               'y RSHIFT 2 -> g',
               'NOT x -> h',
               'NOT y -> i']
-def parse_instruction(instruction):
-    pass
+
 
 def process_instruction(instruction):
     parts = instruction.split()
@@ -35,7 +34,6 @@ def process_instruction(instruction):
         if operator == 'RSHIFT':
             return int(operand1) >> int(operand2)
 
-
     elif len(parts) == 2:
         operator, operand1 = parts
         if not type(signals.get(operand1)) == int:
@@ -55,9 +53,10 @@ def process_instruction(instruction):
             operand = signals[operand]
         return operand
 
+
 signals = {}
-for input in real_input:
-    instruction, output = input.split(' -> ')
+for line in real_input:
+    instruction, output = line.split(' -> ')
     if instruction.isnumeric():
         signals[output] = int(instruction)
     else:
